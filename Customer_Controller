@@ -1,0 +1,26 @@
+//(CustomerController.java):
+package com.example.deliveryapp.controller;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
+import com.example.deliveryapp.service.OrderService;
+import com.example.deliveryapp.dto.OrderDTO;
+
+@RestController
+@RequestMapping("/customer")
+public class CustomerController {
+
+    @Autowired
+    private OrderService orderService;
+
+    @PostMapping("/placeOrder")
+    public String placeOrder(@RequestBody OrderDTO orderDTO) {
+        orderService.createOrder(orderDTO);
+        return "Order placed successfully!";
+    }
+
+    @GetMapping("/orders/{customerId}")
+    public List<OrderDTO> getOrderHistory(@PathVariable Long customerId) {
+        return orderService.getOrdersByCustomerId(customerId);
+    }
+}
