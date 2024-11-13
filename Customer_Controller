@@ -1,5 +1,5 @@
 //(CustomerController.java):
-package com.example.deliveryapp.controller;
+package com.onlinedelivery.deliveryapp.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
