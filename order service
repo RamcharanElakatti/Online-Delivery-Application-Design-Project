@@ -1,0 +1,26 @@
+package com.onlinedevliery.deliveryapp.service;
+
+import com.example.deliveryapp.dto.OrderDTO;
+import com.example.deliveryapp.entity.Order;
+import com.example.deliveryapp.repository.OrderRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+@Service
+public class OrderService {
+
+    @Autowired
+    private OrderRepository orderRepository;
+
+    public void createOrder(OrderDTO orderDTO) {
+        // Logic to convert DTO to entity and save to database
+        Order order = new Order();
+        // populate order fields...
+        orderRepository.save(order);
+    }
+
+    public List<OrderDTO> getOrdersByCustomerId(Long customerId) {
+        // Logic to fetch orders by customer ID
+        return orderRepository.findByCustomerId(customerId);
+    }
+}
