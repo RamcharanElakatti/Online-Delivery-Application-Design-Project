@@ -1,4 +1,4 @@
-package com.example.deliveryapp.entity;
+package com.onlinedelivery.deliveryapp.entity;
 
 import javax.persistence.*;
 import java.util.Date;
